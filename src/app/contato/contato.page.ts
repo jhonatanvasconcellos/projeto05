@@ -7,28 +7,35 @@ import { ContatoService } from '../contato.service';
   styleUrls: ['./contato.page.scss'],
 })
 export class ContatoPage implements OnInit {
+
+Nome : String;
+Endereco : String;
+Tel : String;
+
       contatos:any;
-  constructor(private nav: NavController, 
+  constructor(private nav: NavController,
               private servico: ContatoService,
               private alerta: AlertController) { }
 
   ngOnInit() {
-    console.log("Carregando a página...");
-    console.log(this.servico.listar());
 
-    this.servico.listar().subscribe(data => {
-      this.contatos = data.map(e => {
-        return{
-          id: e.payload.doc.id,
-          email : e.payload.doc.data()['email'],
-          nome: e.payload.doc.data()['nome'],
-          telefone: e.payload.doc.data()['telefone']
 
-        }
-      })
+   // console.log("Carregando a página...");
+   // console.log(this.servico.listar());
 
-      console.log(this.contatos);
-    });
+  //  this.servico.listar().subscribe(data => {
+  //    this.contatos = data.map(e => {
+    //    return{
+    //      id: e.payload.doc.id,
+     //     email : e.payload.doc.data()['email'],
+     //     nome: e.payload.doc.data()['nome'],
+      //    telefone: e.payload.doc.data()['telefone']
+//
+     //   }
+     // })
+
+   //   console.log(this.contatos);
+   // });
   }
 
   async excluir(contatos){
@@ -62,4 +69,15 @@ export class ContatoPage implements OnInit {
       idcontato: contato.id
     }]);
   }
+
+  registrar(){
+    let cliente = {};
+    cliente['Nome'] = this.Nome;
+    cliente['Endereco'] = this.Endereco;
+    cliente['telefone'] = this.Tel;
+
+    this.servico.incluir(cliente);
+      this.nav.navigateForward("contato");
+
+  }  
 }

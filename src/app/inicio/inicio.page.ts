@@ -10,19 +10,22 @@ export class InicioPage implements OnInit {
   constructor(private nav: NavController) { 
 
 
-    //RegistroCliente() {
-     // console.log("Função RegistroCliente");
-    //  this.nav.navigateForward("contato");
-    //}
-  
-   // RegistroServico() {
-    //  console.log("Função RegistroServico");
-     // this.nav.navigateForward("servico");
-   // }
-
+    
   }
 
   ngOnInit() {
   }
+
+RegistroCliente() {
+      console.log("Função RegistroCliente");
+      this.nav.navigateForward("contato");
+    }
+  
+   RegistroServico() {
+     console.log("Função RegistroServico");
+     this.nav.navigateForward("servico");
+   }
+
+
 
 }
