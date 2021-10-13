@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title  id="titulo">
+      CONTROLE DE PEDIDOS
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +14,10 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong>Bem vindo</strong><br/>
+    <ion-button id="botao"(click)="irParaLogin()">Login</ion-button>
+    
+    <ion-button id="botao"color="danger" 
+        (click)="irParaCadastro()">Cadastre-se</ion-button>
   </div>
 </ion-content>
